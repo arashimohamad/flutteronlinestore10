@@ -22,7 +22,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   //Link API Tambah Product
   //buleh guna url di bawah bagi yg guna android emulator
-  final String url = "http://10.0.2.2/onlinestore10/public/api/products";
+  String url = "http://10.0.2.2/onlinestore10/public/api/products";
 
   //buleh guna url di bawah bagi yg web browser
   //final String url = 'http://localhost/onlinestore10/public/api/products';
@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
   Future deleteProduct(String productId) async {
     //String urlDelete = url2 + productId;
     //String urlDelete = "http://localhost/onlinestore10/public/api/products/delete/" + productId;
-    String urlDelete = "http://10.0.2.2/onlinestore10/public/api/products/delete/" + productId;
+    String urlDelete = "http://10.0.2.2/onlinestore10/public/api/products/delete/$productId";
     var response = await http.delete(Uri.parse(urlDelete));
     //print(json.decode(response.body));   //recall data
     return json.decode(response.body);
@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                   builder: (context) => AddProduct(),
                 ));
           },
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
         ),
         appBar: AppBar(
           title: const Center(child: Text('Online Shop')),
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                                             )));
                               },
                               child: Container(
-                                padding: EdgeInsets.all(5),
+                                padding: const EdgeInsets.all(5),
                                 height: 120,
                                 width: 120,
                                 child: Image.network(
@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                             Expanded(
                               child: Container(
-                                padding: EdgeInsets.all(10.0),
+                                padding: const EdgeInsets.all(10.0),
                                 child: Column(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
@@ -111,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                                       alignment: Alignment.topLeft,
                                       child: Text(
                                         snapshot.data['data'][index]['name'],
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 20.0,
                                             fontWeight: FontWeight.bold),
                                       ),
@@ -139,18 +139,18 @@ class _HomePageState extends State<HomePage> {
                                                                         [index],
                                                                   )));
                                                 },
-                                                child: Icon(Icons.edit)),
+                                                child: const Icon(Icons.edit)),
                                             GestureDetector(
                                                 onTap: () {
                                                   deleteProduct(snapshot.data['data'][index]['id'].toString()).then((value){
                                                     //Refresh screen mobile guna setState
                                                     setState(() {});
-                                                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                                                       content: Text("Product Successfully Deleted !"),
                                                     ));
                                                   });
                                                 },
-                                                child: Icon(Icons.delete)),
+                                                child: const Icon(Icons.delete)),
                                           ],
                                         ),
                                         Text(snapshot.data['data'][index]

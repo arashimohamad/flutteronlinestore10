@@ -21,6 +21,8 @@ class AddProduct extends StatelessWidget {
   //buleh guna url di bawah bagi yg guna android emulator
   final String url = "http://10.0.2.2/onlinestore10/public/api/products";
 
+  AddProduct({super.key});
+
   //buleh guna url di bawah bagi yg web browser
   //final String url = 'http://localhost/onlinestore10/public/api/products';
 
@@ -40,7 +42,7 @@ class AddProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Add Product'),
+          title: const Text('Add Product'),
         ),
         body: Form(
             //masukkan formKey di sini
@@ -50,7 +52,7 @@ class AddProduct extends StatelessWidget {
                 TextFormField(
                   //masukkan controller
                   controller: _nameController,
-                  decoration: InputDecoration(labelText: 'Name'),
+                  decoration: const InputDecoration(labelText: 'Name'),
                   //Masukkan validator
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -61,7 +63,7 @@ class AddProduct extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: _descriptionController,
-                  decoration: InputDecoration(labelText: 'Description'),
+                  decoration: const InputDecoration(labelText: 'Description'),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Please Enter Description";
@@ -71,7 +73,7 @@ class AddProduct extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: _priceController,
-                  decoration: InputDecoration(labelText: 'Price'),
+                  decoration: const InputDecoration(labelText: 'Price'),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Please Enter Price";
@@ -81,7 +83,7 @@ class AddProduct extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: _imageUrlController,
-                  decoration: InputDecoration(labelText: 'Image URL'),
+                  decoration: const InputDecoration(labelText: 'Image URL'),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Please Enter Image URL";
@@ -89,7 +91,7 @@ class AddProduct extends StatelessWidget {
                     return null;
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 ElevatedButton(
@@ -99,15 +101,15 @@ class AddProduct extends StatelessWidget {
                         Navigator.push(
                           context,
                             MaterialPageRoute(
-                              builder: (context) => HomePage()));
+                              builder: (context) => const HomePage()));
                         //Berikan notifikasi
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           content: Text("Product Successfully Added !"),));
                       });
                     }                      
                     //print(_nameController.text); //mcm laravel guna dd()
                   },
-                  child: Text('Save')),
+                  child: const Text('Save')),
               ],
             )));
   }

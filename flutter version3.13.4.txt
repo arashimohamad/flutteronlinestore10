@@ -1,0 +1,10 @@
+C:\Users\Administrator>flutter --version
+
+Flutter 3.13.4 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 367f9ea16b (2 days ago) • 2023-09-12 23:27:53 -0500
+Engine • revision 9064459a8b
+Tools • Dart 3.1.2 • DevTools 2.25.0
+
+Previous flutter version used to study is 3.10.5.
+
+Cannot downgrade when we use the latest version.

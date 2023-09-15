@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 
 class ProductDetail extends StatelessWidget {
@@ -14,8 +16,9 @@ class ProductDetail extends StatelessWidget {
       ),
       body: Column(
         children: [
+          // ignore: avoid_unnecessary_containers
           Container(child: Image.network(product['image_url']),),
-          SizedBox(height: 20,),
+          const SizedBox(height: 20,),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -23,9 +26,9 @@ class ProductDetail extends StatelessWidget {
               children: [
                 Text(
                   product['price'], 
-                  style: TextStyle(fontSize: 22),
+                  style: const TextStyle(fontSize: 22),
                   ),
-                Row(
+                const Row(
                   children: [
                     Icon(Icons.edit),
                     Icon(Icons.delete),

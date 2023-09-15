@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -38,6 +40,7 @@ class HomePage extends StatelessWidget {
   Future deleteProduct(String productId) async {
     //String urlDelete = url2 + productId;
     //String urlDelete = "http://localhost/onlinestore10/public/api/products/delete/" + productId;
+    // ignore: prefer_interpolation_to_compose_strings
     String urlDelete = "http://10.0.2.2/onlinestore10/public/api/products/delete/" + productId;
     var response = await http.delete(Uri.parse(urlDelete));
     //print(json.decode(response.body));   //recall data
@@ -58,7 +61,7 @@ class HomePage extends StatelessWidget {
                   builder: (context) => AddProduct(),
                 ));
           },
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
         ),
         appBar: AppBar(
           title: const Center(child: Text('Online Shop')),
@@ -91,7 +94,7 @@ class HomePage extends StatelessWidget {
                                             )));
                               },
                               child: Container(
-                                padding: EdgeInsets.all(5),
+                                padding: const EdgeInsets.all(5),
                                 height: 120,
                                 width: 120,
                                 child: Image.network(
@@ -102,7 +105,7 @@ class HomePage extends StatelessWidget {
                             ),
                             Expanded(
                               child: Container(
-                                padding: EdgeInsets.all(10.0),
+                                padding: const EdgeInsets.all(10.0),
                                 child: Column(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
@@ -111,7 +114,7 @@ class HomePage extends StatelessWidget {
                                       alignment: Alignment.topLeft,
                                       child: Text(
                                         snapshot.data['data'][index]['name'],
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 20.0,
                                             fontWeight: FontWeight.bold),
                                       ),
@@ -139,18 +142,18 @@ class HomePage extends StatelessWidget {
                                                                         [index],
                                                                   )));
                                                 },
-                                                child: Icon(Icons.edit)),
+                                                child: const Icon(Icons.edit)),
                                             GestureDetector(
                                                 onTap: () {
                                                   deleteProduct(snapshot.data['data'][index]['id'].toString()).then((value){
                                                     //Refresh screen mobile guna setState tapi class kena pakai class StatefulWidget
                                                     //setState(() {});
-                                                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                                                       content: Text("Product Successfully Deleted !"),
                                                     ));
                                                   });
                                                 },
-                                                child: Icon(Icons.delete)),
+                                                child: const Icon(Icons.delete)),
                                           ],
                                         ),
                                         Text(snapshot.data['data'][index]

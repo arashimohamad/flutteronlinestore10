@@ -10,6 +10,7 @@ class EditProduct extends StatelessWidget {
   //Bawa data product dari HomePage ke edit Product guna Map dan harus
   //sertakan property product (data product)
   final Map product;
+  // ignore: use_key_in_widget_constructors
   EditProduct({required this.product});
 
   //Untk validasi kita perlukan formKey
@@ -49,7 +50,7 @@ class EditProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Edit Product'),
+          title: const Text('Edit Product'),
         ),
         body: Form(
             //masukkan formKey di sini
@@ -61,7 +62,7 @@ class EditProduct extends StatelessWidget {
                   controller: _nameController
                     ..text = product[
                         'name'], //tanda .. tu utk flutter initialize data dari table product
-                  decoration: InputDecoration(labelText: 'Name'),
+                  decoration: const InputDecoration(labelText: 'Name'),
                   //Masukkan validator
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -73,7 +74,7 @@ class EditProduct extends StatelessWidget {
                 TextFormField(
                   controller: _descriptionController
                     ..text = product['description'],
-                  decoration: InputDecoration(labelText: 'Description'),
+                  decoration: const InputDecoration(labelText: 'Description'),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Please Enter Description";
@@ -83,7 +84,7 @@ class EditProduct extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: _priceController..text = product['price'],
-                  decoration: InputDecoration(labelText: 'Price'),
+                  decoration: const InputDecoration(labelText: 'Price'),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Please Enter Price";
@@ -93,7 +94,7 @@ class EditProduct extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: _imageUrlController..text = product['image_url'],
-                  decoration: InputDecoration(labelText: 'Image URL'),
+                  decoration: const InputDecoration(labelText: 'Image URL'),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Please Enter Image URL";
@@ -101,7 +102,7 @@ class EditProduct extends StatelessWidget {
                     return null;
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 ElevatedButton(
@@ -111,16 +112,16 @@ class EditProduct extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HomePage()));
+                                  builder: (context) => const HomePage()));
                           //Berikan notifikasi
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                               content: Text("Product Successfully Updated !"),));
                         });
                       }
                       //else {}
                       //print(_nameController.text); //mcm laravel guna dd()
                     },
-                    child: Text('Update')),
+                    child: const Text('Update')),
               ],
             )));
   }
